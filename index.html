@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store - Игровые девайсы</title>  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Online Store</a>
+                <div class="nav-links">
+                    <!-- Заменил button на ссылки якоря <a> -->
+                    <a href="#controllers" class="btn-custom">Контроллеры</a>
+                    <a href="#pcs" class="btn-custom">Игровые ПК</a>
+                    <a href="#wheels" class="btn-custom">Рули</a>
+                    <a href="#chairs" class="btn-custom">Кресла</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ГЛАВНЫЙ ЭКРАН -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-text">
+                        <h1>Официальный магазин девайсов</h1>
+                        <p class="subtitle">Всё в наличии на складе. Доверяйте профессионалам!</p>
+
+                        <ul class="features">
+                            <li>🛡️ <strong>Гарантия 3 года</strong> на всю технику</li>
+                            <li>📦 <strong>Собственный склад</strong> — отгрузка за 24 часа</li>
+                            <li>💯 <strong>100% Оригинальная</strong> продукция</li>
+                        </ul>
+
+                        <!-- Кнопка с якорем ведет к первому разделу товаров -->
+                        <a href="#controllers" class="btn-custom btn-primary-custom">Перейти в каталог</a>
+                    </div>
+                    <div class="col-lg-6 hero-img-container">
+                        <img class="img-1" src="https://storeinteriors.ru/wp-content/uploads/dizayn-magazina-tekhniki-sony-01.jpg" alt="Магазин">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК 1: КОНТРОЛЛЕРЫ -->
+        <section id="controllers" class="category-section">
+            <div class="container">
+                <h2 class="section-title">Контроллеры</h2>
+                <div class="row g-4"> <!-- g-4 делает красивые отступы между колонками -->
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2020/10/ps5-white-dualsense.png" alt="PS5">
+                            <h3 class="product-title">DualSense PS5</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">7 500 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2023/04/xboxone-1.jpg" alt="Xbox">
+                            <h3 class="product-title">Xbox Wireless</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">6 200 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2020/07/ns-pro-controller-2.jpg" alt="Nintendo">
+                            <h3 class="product-title">Nintendo Pro</h3>
+                            <p class="product-status">Заканчивается</p>
+                            <p class="product-price">8 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://i5.walmartimages.com/seo/Sony-3001538-DualShock-4-Wireless-Controller-for-PlayStation-4-Jet-Black_ec6aff92-015d-41cb-b4bc-96c11a681673.d27f2dd2b79643ba2df7c698090390e6.jpeg" alt="PS4">
+                            <h3 class="product-title">DualShock 4</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">4 500 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК 2: ИГРОВЫЕ ПК -->
+        <section id="pcs" class="category-section">
+            <div class="container">
+                <h2 class="section-title">Игровые ПК</h2>
+                <div class="row g-4">
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=500&q=80" alt="PC">
+                            <h3 class="product-title">CyberTech RTX 4060</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">75 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://images.unsplash.com/photo-1603481546238-487240415921?w=500&q=80" alt="PC">
+                            <h3 class="product-title">Alienware Pro X</h3>
+                            <p class="product-status">Под заказ</p>
+                            <p class="product-price">120 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=500&q=80" alt="PC">
+                            <h3 class="product-title">Custom Build AMD</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">89 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&q=80" alt="PC">
+                            <h3 class="product-title">Ultra Gaming Station</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">150 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК 3: ИГРОВЫЕ РУЛИ -->
+        <section id="wheels" class="category-section">
+            <div class="container">
+                <h2 class="section-title">Игровые Рули</h2>
+                <div class="row g-4">
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2020/07/dshhpsheusr-p29.jpg" alt="Wheel">
+                            <h3 class="product-title">Logitech G29</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">28 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSls7cVDiMHOhvz9KX2pKvd5cxUNpABezk8uto80tDPqIsrC959LPpJEYQ&s=10" alt="Wheel">
+                            <h3 class="product-title">Racing Wheel 360</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">15 500 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/t300rs-2.jpeg" alt="Wheel setup">
+                            <h3 class="product-title">Thrustmaster T300</h3>
+                            <p class="product-status">Осталось 2 шт</p>
+                            <p class="product-price">42 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2023/11/mozaR5-1.jpg.webp" alt="Arcade">
+                            <h3 class="product-title">Moza R5 Bundle</h3>
+                            <p class="product-status">Под заказ</p>
+                            <p class="product-price">55 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК 4: ИГРОВЫЕ КРЕСЛА -->
+        <section id="chairs" class="category-section">
+            <div class="container">
+                <h2 class="section-title">Игровые Кресла</h2>
+                <div class="row g-4">
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://m.media-amazon.com/images/I/51uuAT6xypL._AC_UF894,1000_QL80_.jpg" alt="Chair">
+                            <h3 class="product-title">DXRacer Formula</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">22 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://images.secretlab.co/turntable/tr:n-w_450/R22PU-Stealth_02.jpg" alt="Chair">
+                            <h3 class="product-title">Secretlab Titan</h3>
+                            <p class="product-status">Под заказ</p>
+                            <p class="product-price">45 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" style="border-radius:10px;" src="https://gamestore.kg/wp-content/uploads/2026/03/iskurv2x-6.jpg" alt="Chair">
+                            <h3 class="product-title">Razer Iskur</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">38 000 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <img class="product-img" src="https://m.media-amazon.com/images/I/71EF7IZXAlL._AC_UF894,1000_QL80_.jpg" alt="Chair">
+                            <h3 class="product-title">Corsair T3 Rush</h3>
+                            <p class="product-status">В наличии</p>
+                            <p class="product-price">29 500 сом</p>
+                            <button class="btn-custom">В корзину</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
