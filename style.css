@@ -13,7 +13,8 @@
     --btn-clean-bg: rgba(255, 255, 255, 0.05);
 }
 
-[data-theme="light"] {
+/* Исправлено на data-bs-theme для совместимости с Bootstrap */
+[data-bs-theme="light"] {
     --bg-main: #f8fafc;
     --card-bg: #ffffff;
     --card-border: rgba(0, 0, 0, 0.06);
@@ -38,7 +39,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header */
+/* === Header === */
 .main-header {
     position: sticky;
     top: 0;
@@ -125,7 +126,7 @@ body {
     justify-content: center;
 }
 
-/* Hero Section */
+/* === Hero Section === */
 .hero-section {
     padding: 90px 0 60px;
 }
@@ -217,7 +218,7 @@ body {
     z-index: 1;
 }
 
-/* Cards Section */
+/* === Cards Section === */
 .category-section {
     padding: 60px 0;
 }
@@ -324,7 +325,7 @@ body {
     border-color: transparent;
 }
 
-/* Modal */
+/* === Modal === */
 .custom-modal {
     background: var(--modal-bg);
     border: 1px solid var(--card-border);
@@ -338,7 +339,7 @@ body {
     padding: 20px;
 }
 
-[data-theme="dark"] .btn-close { filter: invert(1); }
+[data-bs-theme="dark"] .btn-close { filter: invert(1); }
 .custom-modal .btn-close {
     font-size: 1.2rem;
     padding: 12px;
@@ -346,14 +347,15 @@ body {
     opacity: 0.8;
     transition: transform 0.2s ease, opacity 0.2s ease;
     cursor: pointer;
-    z-index: 10; /* Чтобы кнопка всегда была поверх всего контента */
+    z-index: 10;
 }
 
 .custom-modal .btn-close:hover {
     opacity: 1;
-    transform: scale(1.15); /* Легкий эффект увеличения при наведении */
+    transform: scale(1.15);
 }
-/* Cart Item */
+
+/* === Cart Item === */
 .cart-item {
     background: var(--btn-clean-bg);
     border: 1px solid var(--card-border);
@@ -376,60 +378,90 @@ body {
     height: 48px;
     object-fit: contain;
 }
-/* Панель фильтров */
-.filter-panel {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
+
+/* === БОКОВОЙ ФИЛЬТР (Адаптивный под обе темы) === */
+.filter-sidebar {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+    
+    /* Новые правила для независимой прокрутки */
+    max-height: calc(100vh - 120px); /* Ограничиваем высоту (высота экрана минус шапка сайта) */
+    overflow-y: auto; /* Включаем вертикальный скролл, если контент не влезает */
+    
+    /* Стилизация скроллбара для Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+.filter-sidebar::-webkit-scrollbar {
+    width: 6px; /* Тонкий скролл */
+}
+.filter-sidebar::-webkit-scrollbar-track {
+    background: transparent; /* Прозрачный фон дорожки */
 }
 
-.custom-input {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border-radius: 10px;
-    padding: 10px 15px;
-}
-
-.custom-input:focus {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-color: #00f2fe;
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
-    color: #fff;
+.filter-sidebar::-webkit-scrollbar-thumb {
+    background: var(--accent-gradient); /* Красивый градиентный ползунок */
+    border-radius: 10px; /* Закругленные края */
 }
 
 /* Кнопки категорий */
-.btn-cat {
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 6px 18px;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-}
-
-.btn-cat:hover, .btn-cat.active {
-    background: linear-gradient(135deg, #00f2fe, #4facfe);
-    color: #000;
-    font-weight: 600;
-    border-color: transparent;
-}
-.filter-sidebar {
-    background: var(--card-bg);
+.filter-btn {
+    background: var(--btn-clean-bg);
     border: 1px solid var(--card-border);
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
+    color: var(--text-primary);
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-align: left;
+    
+    /* Делаем анимацию дольше и добавляем красивую кривую плавности */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    font-size: 0.9rem;
+    font-weight: 500; /* Фиксируем толщину шрифта, чтобы текст не "прыгал" */
+    width: 100%;
 }
 
-.filter-sidebar .btn-cat {
-    width: 100%;
+.filter-btn:hover {
+    background: rgba(0, 242, 254, 0.08); /* Легкий оттенок акцентного цвета */
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+    transform: translateX(6px); /* Плавное смещение вправо */
+}
+.filter-btn.active {
+    background: var(--accent-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    transform: translateX(6px); /* Оставляем сдвиг, чтобы не прыгала обратно */
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25); /* Добавляем красивое неоновое свечение */
+}
+
+/* Поле поиска и выпадающий список */
+.custom-input {
+    background: var(--btn-clean-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
     border-radius: 10px;
-    padding: 8px 14px;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+.custom-input::placeholder {
+    color: var(--text-muted);
+}
+
+.custom-input:focus {
+    background: var(--card-bg);
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.15);
+    outline: none;
 }
 
 .custom-input option {
-    background-color: var(--modal-bg);
+    background-color: var(--bg-main);
     color: var(--text-primary);
 }
 
@@ -438,51 +470,97 @@ body {
         margin-bottom: 20px;
     }
 }
-/* Боковой фильтр */
-.filter-sidebar {
-    background: rgba(22, 27, 34, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 20px;
+/* === Адаптивность для смартфонов и планшетов === */
+@media (max-width: 991px) {
+    /* 1. Возвращаем нормальный поток для шапки */
+    .header-wrapper {
+        height: 64px;
+    }
+    
+    .brand-logo {
+        font-size: 1.2rem;
+    }
+
+    /* 2. Уменьшаем огромные заголовки в Hero-секции */
+    .hero-section {
+        padding: 40px 0 20px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-stats {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-img-container {
+        margin-top: 20px;
+    }
+
+    /* 3. Сайдбар фильтров на мобилках: убираем липкость, делаем компактным */
+    .filter-sidebar {
+        position: static !important;
+        max-height: none !important;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Категории делаем в виде прокручиваемой горизонтальной ленты ИЛИ вертикальной сеткой в 2 колонки */
+    #categoryFilters {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px !important;
+    }
+
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+        text-align: center;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+        transform: none; /* Отключаем смещение вбок на телефонах, чтобы не дергалось */
+    }
 }
 
-.filter-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #a0aec0;
-    padding: 10px 14px;
-    border-radius: 10px;
-    text-align: left;
-    transition: all 0.2s ease;
-}
+/* Для совсем маленьких телефонов (iPhone SE и т.д.) */
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
 
-.filter-btn:hover, .filter-btn.active {
-    background: #00f2fe;
-    color: #0b0e14;
-    border-color: #00f2fe;
-    font-weight: 600;
-}
+    #categoryFilters {
+        grid-template-columns: 1fr; /* В одну колонку, если экран очень узкий */
+    }
 
-.custom-input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-radius: 10px;
-}
+    .product-card {
+        padding: 15px;
+    }
 
-.custom-input:focus {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: #00f2fe;
-    color: #fff;
-    box-shadow: none;
-}
-.filter-sidebar {
-    padding: 16px;
-    margin-right: 10px; /* Отступ от товаров */
-}
+    .card-img-wrap {
+        height: 140px; /* Уменьшаем высоту картинок в карточках для экономии места */
+    }
 
-.filter-btn {
-    font-size: 0.9rem;
-    padding: 8px 12px;
+    /* Кнопки в модалке корзины */
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .cart-item .d-flex.gap-2 {
+        width: 100%;
+        justify-content: space-between;
+    }
 }

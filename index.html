@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS TECH — Игровые девайсы</title>  
+    <title>VoxelRig — Игровые девайсы</title>  
     
     <!-- Иконка сайта (Favicon) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f2fe'><path d='M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H9v2H7v-2H5v-2h2V9h2v2h2v2zm4.5 1c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'/></svg>">
@@ -17,7 +17,7 @@
         <div class="container">
             <div class="header-wrapper">
                 <a href="#" class="brand-logo">
-                    <span class="logo-accent">NEXUS</span>TECH
+                    <span class="logo-accent">VoxelRig</span>
                 </a>
 
                 <div class="header-actions">
@@ -87,312 +87,140 @@
         </section>
 
         <!-- Блок каталога с Сайдбаром слева -->
-        <section id="catalog" class="py-5">
-            <div class="container">
-                <div class="row g-4">
-                    
-                    <!-- ЛЕВАЯ КОЛОНКА: Сайдбар Фильтров -->
-                    <aside class="col-lg-3">
-                        <div class="filter-sidebar sticky-top" style="top: 100px; z-index: 10;">
-                            <h4 class="fw-bold mb-4">Фильтры</h4>
+        <!-- Блок каталога с Сайдбаром слева -->
+        <!-- Блок каталога с Сайдбаром слева -->
+<section id="catalog" class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            
+            <!-- ЛЕВАЯ КОЛОНКА: Сайдбар Фильтров -->
+            <aside class="col-lg-3">
+                <div class="filter-sidebar sticky-top" style="top: 100px; z-index: 10;">
+                    <h4 class="fw-bold mb-4">Фильтры</h4>
 
-                            <!-- Поиск -->
-                            <div class="mb-4">
-                                <label class="form-label text-muted small fw-bold">ПОИСК</label>
-                                <input type="text" id="searchInput" class="form-control custom-input" placeholder="Название товара...">
-                            </div>
+                    <!-- Поиск -->
+                    <div class="mb-4">
+                        <label class="form-label text-muted small fw-bold">ПОИСК</label>
+                        <input type="text" id="searchInput" class="form-control custom-input" placeholder="Название товара...">
+                    </div>
 
-                            <!-- Категории -->
-                            <div class="mb-4">
-                                <label class="form-label text-muted small fw-bold mb-2">КАТЕГОРИИ</label>
-                                <div class="d-flex flex-column gap-2" id="categoryFilters">
-                                    <button class="filter-btn active" data-cat="all">Все товары</button>
-                                    <button class="filter-btn" data-cat="controllers">🎮 Контроллеры</button>
-                                    <button class="filter-btn" data-cat="pcs">💻 Игровые ПК</button>
-                                    <button class="filter-btn" data-cat="wheels">🏎️ Рули</button>
-                                    <button class="filter-btn" data-cat="chairs">🪑 Кресла</button>
-                                </div>
-                            </div>
-
-                            <!-- Сортировка -->
-                            <div class="mb-3">
-                                <label class="form-label text-muted small fw-bold">СОРТИРОВКА</label>
-                                <select id="sortSelect" class="form-select custom-input">
-                                    <option value="default">По умолчанию</option>
-                                    <option value="asc">Сначала дешевле</option>
-                                    <option value="desc">Сначала дороже</option>
-                                </select>
-                            </div>
+                    <!-- Категории -->
+                    <div class="mb-4">
+                        <label class="form-label text-muted small fw-bold mb-2">КАТЕГОРИИ</label>
+                        <div class="d-flex flex-column gap-2" id="categoryFilters">
+                            <button class="filter-btn active" data-cat="all">Все товары</button>
+                            <button class="filter-btn" data-cat="consoles">🎮 Игровые консоли</button>
+                            <button class="filter-btn" data-cat="pcs">💻 Игровые ПК</button>
+                            <button class="filter-btn" data-cat="monitors">🖥️ Мониторы</button>
+                            <button class="filter-btn" data-cat="keyboards">⌨️ Клавиатуры</button>
+                            <button class="filter-btn" data-cat="mice">🖱️ Игровые мыши</button>
+                            <button class="filter-btn" data-cat="audio">🎧 Гарнитуры и звук</button>
+                            <button class="filter-btn" data-cat="controllers">🕹️ Контроллеры</button>
+                            <button class="filter-btn" data-cat="wheels">🏎️ Рули</button>
+                            <button class="filter-btn" data-cat="chairs">🪑 Кресла</button>
                         </div>
-                    </aside>
+                    </div>
 
-                    <!-- ПРАВАЯ КОЛОНКА: Товары -->
-                    <div class="col-lg-9">
-                        
-                        <!-- Контроллеры -->
-                        <div id="controllers" class="category-block mb-5" data-category="controllers">
-                            <div class="section-header mb-4">
-                                <h2 class="section-title">Контроллеры</h2>
-                                <p class="section-subtitle">Погружение в игру с каждой вибрацией</p>
-                            </div>
-                            <div class="row g-3">
-                                <div class="col-md-6 col-xl-4 product-item" data-price="7500" data-title="DualSense PS5">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="DualSense PS5" data-price="7500" data-status="В наличии" data-img="https://gamestore.kg/wp-content/uploads/2020/10/ps5-white-dualsense.png" data-desc="Инновационный беспроводной контроллер для PlayStation 5. Оснащен тактильной отдачей и адаптивными триггерами.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2020/10/ps5-white-dualsense.png" alt="PS5">
-                                        </div>
-                                        <h3 class="product-title">DualSense PS5</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">7 500 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="6200" data-title="Xbox Wireless">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Xbox Wireless" data-price="6200" data-status="В наличии" data-img="https://gamestore.kg/wp-content/uploads/2023/04/xboxone-1.jpg" data-desc="Фирменный беспроводной геймпад Microsoft для ПК и Xbox Series X|S.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2023/04/xboxone-1.jpg" alt="Xbox">
-                                        </div>
-                                        <h3 class="product-title">Xbox Wireless</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">6 200 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="8000" data-title="Nintendo Pro">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Nintendo Pro" data-price="8000" data-status="Заканчивается" data-img="https://gamestore.kg/wp-content/uploads/2020/07/ns-pro-controller-2.jpg" data-desc="Профессиональный контроллер для Nintendo Switch. До 40 часов непрерывной работы.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2020/07/ns-pro-controller-2.jpg" alt="Nintendo">
-                                        </div>
-                                        <h3 class="product-title">Nintendo Pro</h3>
-                                        <p class="product-status warning">Заканчивается</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">8 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="4500" data-title="DualShock 4">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="DualShock 4" data-price="4500" data-status="В наличии" data-img="https://i5.walmartimages.com/seo/Sony-3001538-DualShock-4-Wireless-Controller-for-PlayStation-4-Jet-Black_ec6aff92-015d-41cb-b4bc-96c11a681673.d27f2dd2b79643ba2df7c698090390e6.jpeg" data-desc="Классический беспроводной контроллер для PlayStation 4 и ПК.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://i5.walmartimages.com/seo/Sony-3001538-DualShock-4-Wireless-Controller-for-PlayStation-4-Jet-Black_ec6aff92-015d-41cb-b4bc-96c11a681673.d27f2dd2b79643ba2df7c698090390e6.jpeg" alt="PS4">
-                                        </div>
-                                        <h3 class="product-title">DualShock 4</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">4 500 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Игровые ПК -->
-                        <div id="pcs" class="category-block mb-5" data-category="pcs">
-                            <div class="section-header mb-4">
-                                <h2 class="section-title">Игровые ПК</h2>
-                                <p class="section-subtitle">Максимальная мощность без компромиссов</p>
-                            </div>
-                            <div class="row g-3">
-                                <div class="col-md-6 col-xl-4 product-item" data-price="75000" data-title="CyberTech RTX 4060">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="CyberTech RTX 4060" data-price="75000" data-status="В наличии" data-img="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=500&q=80" data-desc="Мощный игровой системный блок с графикой NVIDIA RTX 4060 и быстрым NVMe накопителем.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=500&q=80" alt="PC">
-                                        </div>
-                                        <h3 class="product-title">CyberTech RTX 4060</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">75 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="120000" data-title="Alienware Pro X">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Alienware Pro X" data-price="120000" data-status="Под заказ" data-img="https://images.unsplash.com/photo-1603481546238-487240415921?w=500&q=80" data-desc="Флагманская геймерская станция с жидкостным охлаждением.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://images.unsplash.com/photo-1603481546238-487240415921?w=500&q=80" alt="PC">
-                                        </div>
-                                        <h3 class="product-title">Alienware Pro X</h3>
-                                        <p class="product-status info">Под заказ</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">120 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="89000" data-title="Custom Build AMD">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Custom Build AMD" data-price="89000" data-status="В наличии" data-img="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=500&q=80" data-desc="Сборка на базе AMD Ryzen для киберспортивных дисциплин с максимальным FPS.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=500&q=80" alt="PC">
-                                        </div>
-                                        <h3 class="product-title">Custom Build AMD</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">89 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="150000" data-title="Ultra Gaming Station">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Ultra Gaming Station" data-price="150000" data-status="В наличии" data-img="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&q=80" data-desc="Бескомпромиссная станция для 4K-гейминга и стриминга.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&q=80" alt="PC">
-                                        </div>
-                                        <h3 class="product-title">Ultra Gaming Station</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">150 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Игровые рули -->
-                        <div id="wheels" class="category-block mb-5" data-category="wheels">
-                            <div class="section-header mb-4">
-                                <h2 class="section-title">Игровые Рули</h2>
-                                <p class="section-subtitle">Почувствуй каждый снос трассы</p>
-                            </div>
-                            <div class="row g-3">
-                                <div class="col-md-6 col-xl-4 product-item" data-price="28000" data-title="Logitech G29">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Logitech G29" data-price="28000" data-status="В наличии" data-img="https://gamestore.kg/wp-content/uploads/2020/07/dshhpsheusr-p29.jpg" data-desc="Легендарный гоночный руль с силовым фидбеком и педалями.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2020/07/dshhpsheusr-p29.jpg" alt="Wheel">
-                                        </div>
-                                        <h3 class="product-title">Logitech G29</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">28 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="15500" data-title="Racing Wheel 360">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Racing Wheel 360" data-price="15500" data-status="В наличии" data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSls7cVDiMHOhvz9KX2pKvd5cxUNpABezk8uto80tDPqIsrC959LPpJEYQ&s=10" data-desc="Удобный руль с углом поворота 360° для аркадных автосимуляторов.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSls7cVDiMHOhvz9KX2pKvd5cxUNpABezk8uto80tDPqIsrC959LPpJEYQ&s=10" alt="Wheel">
-                                        </div>
-                                        <h3 class="product-title">Racing Wheel 360</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">15 500 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="42000" data-title="Thrustmaster T300">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Thrustmaster T300" data-price="42000" data-status="Осталось 2 шт" data-img="https://gamestore.kg/wp-content/uploads/t300rs-2.jpeg" data-desc="Бесщеточный сервомотор для бесшумного и плавного отклика.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/t300rs-2.jpeg" alt="Wheel setup">
-                                        </div>
-                                        <h3 class="product-title">Thrustmaster T300</h3>
-                                        <p class="product-status warning">Осталось 2 шт</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">42 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="55000" data-title="Moza R5 Bundle">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Moza R5 Bundle" data-price="55000" data-status="Под заказ" data-img="https://gamestore.kg/wp-content/uploads/2023/11/mozaR5-1.jpg.webp" data-desc="Прямой привод (Direct Drive) для максимальной реалистичности.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2023/11/mozaR5-1.jpg.webp" alt="Arcade">
-                                        </div>
-                                        <h3 class="product-title">Moza R5 Bundle</h3>
-                                        <p class="product-status info">Под заказ</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">55 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Игровые кресла -->
-                        <div id="chairs" class="category-block mb-5" data-category="chairs">
-                            <div class="section-header mb-4">
-                                <h2 class="section-title">Игровые Кресла</h2>
-                                <p class="section-subtitle">Максимальный комфорт при долгих сессиях</p>
-                            </div>
-                            <div class="row g-3">
-                                <div class="col-md-6 col-xl-4 product-item" data-price="22000" data-title="DXRacer Formula">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="DXRacer Formula" data-price="22000" data-status="В наличии" data-img="https://m.media-amazon.com/images/I/51uuAT6xypL._AC_UF894,1000_QL80_.jpg" data-desc="Анатомическое геймерское кресло с поддержкой поясницы и шеи.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://m.media-amazon.com/images/I/51uuAT6xypL._AC_UF894,1000_QL80_.jpg" alt="Chair">
-                                        </div>
-                                        <h3 class="product-title">DXRacer Formula</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">22 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="45000" data-title="Secretlab Titan">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Secretlab Titan" data-price="45000" data-status="Под заказ" data-img="https://images.secretlab.co/turntable/tr:n-w_450/R22PU-Stealth_02.jpg" data-desc="Премиальное кресло с 4-сторонней регулировкой поясничной системы.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://images.secretlab.co/turntable/tr:n-w_450/R22PU-Stealth_02.jpg" alt="Chair">
-                                        </div>
-                                        <h3 class="product-title">Secretlab Titan</h3>
-                                        <p class="product-status info">Под заказ</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">45 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="38000" data-title="Razer Iskur">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Razer Iskur" data-price="38000" data-status="В наличии" data-img="https://gamestore.kg/wp-content/uploads/2026/03/iskurv2x-6.jpg" data-desc="Кресло с изогнутым поясничным упором и 4D-подлокотниками.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://gamestore.kg/wp-content/uploads/2026/03/iskurv2x-6.jpg" alt="Chair">
-                                        </div>
-                                        <h3 class="product-title">Razer Iskur</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">38 000 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-xl-4 product-item" data-price="29500" data-title="Corsair T3 Rush">
-                                    <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" data-title="Corsair T3 Rush" data-price="29500" data-status="В наличии" data-img="https://m.media-amazon.com/images/I/71EF7IZXAlL._AC_UF894,1000_QL80_.jpg" data-desc="Дышащая мягкая ткань, гарантирующая прохладу во время долгих каток.">
-                                        <div class="card-img-wrap">
-                                            <img class="product-img" src="https://m.media-amazon.com/images/I/71EF7IZXAlL._AC_UF894,1000_QL80_.jpg" alt="Chair">
-                                        </div>
-                                        <h3 class="product-title">Corsair T3 Rush</h3>
-                                        <p class="product-status">В наличии</p>
-                                        <div class="card-footer-flex">
-                                            <span class="product-price">29 500 сом</span>
-                                            <span class="btn-add">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <!-- Сортировка -->
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">СОРТИРОВКА</label>
+                        <select id="sortSelect" class="form-select custom-input">
+                            <option value="default">По умолчанию</option>
+                            <option value="asc">Сначала дешевле</option>
+                            <option value="desc">Сначала дороже</option>
+                        </select>
                     </div>
                 </div>
+            </aside>
+
+            <!-- ПРАВАЯ КОЛОНКА: Товары -->
+            <div class="col-lg-9">
+                
+                <!-- Игровые консоли -->
+                <div id="block-consoles" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Игровые консоли</h2>
+                        <p class="section-subtitle">Платформы нового поколения для лучших эксклюзивов</p>
+                    </div>
+                    <div class="row g-3" id="list-consoles"></div>
+                </div>
+
+                <!-- Игровые ПК -->
+                <div id="block-pcs" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Игровые ПК</h2>
+                        <p class="section-subtitle">Максимальная мощность без компромиссов</p>
+                    </div>
+                    <div class="row g-3" id="list-pcs"></div>
+                </div>
+
+                <!-- Мониторы -->
+                <div id="block-monitors" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Мониторы</h2>
+                        <p class="section-subtitle">Высокая частота кадров и идеальная цветопередача</p>
+                    </div>
+                    <div class="row g-3" id="list-monitors"></div>
+                </div>
+
+                <!-- Клавиатуры -->
+                <div id="block-keyboards" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Клавиатуры</h2>
+                        <p class="section-subtitle">Механическая точность каждого нажатия</p>
+                    </div>
+                    <div class="row g-3" id="list-keyboards"></div>
+                </div>
+
+                <!-- Игровые мыши -->
+                <div id="block-mice" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Игровые Мыши</h2>
+                        <p class="section-subtitle">Безупречный сенсор и молниеносный отклик</p>
+                    </div>
+                    <div class="row g-3" id="list-mice"></div>
+                </div>
+
+                <!-- Гарнитуры и звук -->
+                <div id="block-audio" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Гарнитуры и Звук</h2>
+                        <p class="section-subtitle">Услышь противника до того, как он появится</p>
+                    </div>
+                    <div class="row g-3" id="list-audio"></div>
+                </div>
+
+                <!-- Контроллеры -->
+                <div id="block-controllers" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Контроллеры</h2>
+                        <p class="section-subtitle">Погружение в игру с каждой вибрацией</p>
+                    </div>
+                    <div class="row g-3" id="list-controllers"></div>
+                </div>
+
+                <!-- Игровые рули -->
+                <div id="block-wheels" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Игровые Рули</h2>
+                        <p class="section-subtitle">Почувствуй каждый снос трассы</p>
+                    </div>
+                    <div class="row g-3" id="list-wheels"></div>
+                </div>
+
+                <!-- Игровые кресла -->
+                <div id="block-chairs" class="category-block mb-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">Игровые Кресла</h2>
+                        <p class="section-subtitle">Максимальный комфорт при долгих сессиях</p>
+                    </div>
+                    <div class="row g-3" id="list-chairs"></div>
+                </div>
+
             </div>
-        </section>
+        </div>
+    </div>
+</section>
     </main>
 
     <!-- Модальное окно товара -->
