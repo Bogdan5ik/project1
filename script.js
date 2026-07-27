@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // === 1. БАЗА ДАННЫХ ТОВАРОВ ===
-    // === 1. БАЗА ДАННЫХ ТОВАРОВ (90 штук) ===
     const products = [
-        // --- 🎮 ИГРОВЫЕ КОНСОЛИ (+3 товара) ---
+        // --- 🎮 ИГРОВЫЕ КОНСОЛИ ---
         { id: 101, title: "PlayStation 5 Disc", category: "consoles", price: 52000, status: "В наличии", img: "https://placehold.co/400x400/2a2a2a/FFF?text=PS5+Disc", desc: "Флагманская консоль от Sony с дисководом. Невероятная графика 4K и молниеносный SSD." },
         { id: 102, title: "PlayStation 5 Digital", category: "consoles", price: 45000, status: "Осталось 3 шт", statusClass: "warning", img: "https://placehold.co/400x400/2a2a2a/FFF?text=PS5+Digital", desc: "Версия без дисковода для тех, кто предпочитает цифровые версии игр. Абсолютная тишина работы." },
         { id: 103, title: "Xbox Series X", category: "consoles", price: 48000, status: "В наличии", img: "https://placehold.co/400x400/107C10/FFF?text=Xbox+Series+X", desc: "Самая мощная консоль от Microsoft. 12 терафлопс вычислительной мощности и подписка Game Pass." },
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 112, title: "PlayStation VR2", category: "consoles", price: 58000, status: "В наличии", img: "https://placehold.co/400x400/2a2a2a/FFF?text=PS+VR2", desc: "Шлем виртуальной реальности для PS5 с OLED-дисплеями и отслеживанием взгляда." },
         { id: 113, title: "Steam Deck LCD 256GB", category: "consoles", price: 42000, status: "В наличии", img: "https://placehold.co/400x400/1A1A1A/FFF?text=Steam+Deck+LCD", desc: "Базовая версия портативного ПК от Valve. Отличный старт для мобильного гейминга." },
 
-        // --- 💻 ИГРОВЫЕ ПК (+4 товара) ---
+        // --- 💻 ИГРОВЫЕ ПК ---
         { id: 201, title: "Starter Build GTX 1650", category: "pcs", price: 35000, status: "В наличии", img: "https://placehold.co/400x400/111/00FF00?text=PC+GTX+1650", desc: "Отличный ПК для киберспорта (CS:GO, Dota 2, Valorant) на базе надежной GTX 1650." },
         { id: 202, title: "Budget King RX 580", category: "pcs", price: 28000, status: "Хит продаж", statusClass: "info", img: "https://placehold.co/400x400/111/FF0000?text=PC+RX+580", desc: "Народный любимец! AMD Ryzen + Radeon RX 580 8GB потянет все игры в 1080p." },
         { id: 203, title: "Mid-Range RTX 3060", category: "pcs", price: 65000, status: "В наличии", img: "https://placehold.co/400x400/111/00FF00?text=PC+RTX+3060", desc: "Оптимальная сборка для современных игр с поддержкой Ray Tracing и DLSS." },
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 213, title: "HP Omen 45L", category: "pcs", price: 185000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=HP+Omen+45L", desc: "Фирменный ПК от HP с запатентованной системой охлаждения OMEN Cryo Chamber." },
         { id: 214, title: "MSI Trident X2", category: "pcs", price: 240000, status: "Под заказ", statusClass: "info", img: "https://placehold.co/400x400/222/FF0000?text=MSI+Trident", desc: "Уникальный дизайн корпуса с сенсорным экраном на передней панели для управления системой." },
 
-        // --- 🖥️ МОНИТОРЫ (+5 товаров) ---
+        // --- 🖥️ МОНИТОРЫ ---
         { id: 301, title: "AOC 24G2SP 24\"", category: "monitors", price: 16000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=AOC+24", desc: "Бюджетный хит! 165 Гц, IPS-матрица и минимальный отклик для шутеров." },
         { id: 302, title: "ASUS TUF VG249Q 24\"", category: "monitors", price: 18000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=ASUS+TUF+24", desc: "Надежный игровой монитор с регулируемой подставкой и частотой 144 Гц." },
         { id: 303, title: "Acer Nitro VG270UP 27\"", category: "monitors", price: 26000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=Acer+Nitro+27", desc: "Переход на новый уровень: разрешение 2K (1440p) и 144 Гц." },
@@ -50,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 314, title: "ASUS ROG Swift PG27AQN", category: "monitors", price: 105000, status: "Под заказ", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=ROG+Swift+360", desc: "Первый в мире 1440p монитор с частотой 360 Гц. Технологическое чудо от ASUS." },
         { id: 315, title: "Samsung Odyssey G7 27\"", category: "monitors", price: 48000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=Odyssey+G7", desc: "Матрица VA с рекордным откликом 1мс, 240 Гц и сильным изгибом 1000R." },
 
-        // --- ⌨️ КЛАВИАТУРЫ (+8 товаров) ---
+        // --- ⌨️ КЛАВИАТУРЫ ---
         { id: 401, title: "Redragon Kumara K552", category: "keyboards", price: 3500, status: "В наличии", img: "https://placehold.co/400x400/333/FFF?text=Redragon+Kumara", desc: "Отличная первая механическая клавиатура. Компактная, громкая, надежная." },
         { id: 402, title: "Keychron K2 V2", category: "keyboards", price: 8000, status: "В наличии", img: "https://placehold.co/400x400/555/FFF?text=Keychron+K2", desc: "Беспроводная механика, идеально подходящая как для игр, так и для Mac/PC." },
         { id: 403, title: "Razer BlackWidow V3 TKL", category: "keyboards", price: 8500, status: "В наличии", img: "https://placehold.co/400x400/00FF00/000?text=BlackWidow", desc: "Классика от Razer в компактном TKL-формате с фирменными зелеными свитчами." },
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 418, title: "FL Esports CMK87", category: "keyboards", price: 11000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=FL+Esports", desc: "Мощный металлический вес внутри корпуса, невероятно тихий и приятный стук клавиш." },
         { id: 419, title: "Varmilo Minilo 75%", category: "keyboards", price: 13500, status: "Под заказ", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=Varmilo+Minilo", desc: "Эстетика ретро-дизайна и непревзойденное качество сборки от знаменитого бренда Varmilo." },
 
-        // --- 🖱️ ИГРОВЫЕ МЫШИ (+8 товаров) ---
+        // --- 🖱️ ИГРОВЫЕ МЫШИ ---
         { id: 501, title: "Logitech G102 Lightsync", category: "mice", price: 2500, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=Logitech+G102", desc: "Идеальная бюджетная мышь. Классическая форма, отличный сенсор и RGB-подсветка." },
         { id: 502, title: "HyperX Pulsefire Haste", category: "mice", price: 4500, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=Pulsefire+Haste", desc: "Ультралегкая сотовая конструкция (всего 59г) для молниеносных фликов." },
         { id: 503, title: "Endgame Gear XM1r", category: "mice", price: 6000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=XM1r", desc: "Лучшая форма для когтевого хвата. Создана немецкими инженерами для чистого киберспорта." },
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 517, title: "VGN Dragonfly F1 Moba", category: "mice", price: 5200, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=VGN+F1+Moba", desc: "Версия с более мягкими кликами специально для игроков в Dota 2 и League of Legends." },
         { id: 518, title: "Zaopin Z1 Pro", category: "mice", price: 4500, status: "Под заказ", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=Zaopin+Z1", desc: "Форма \"яйца\", идеально подходящая для пальцевого хвата (fingertip). Крошечная, но смертоносная." },
 
-        // --- 🎧 ГАРНИТУРЫ И ЗВУК (+4 товара) ---
+        // --- 🎧 ГАРНИТУРЫ И ЗВУК ---
         { id: 601, title: "FIFINE AmpliGame H6", category: "audio", price: 4500, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=AmpliGame+H6", desc: "Лучший бюджетный звук 7.1. Отличный микрофон, встроенный эквалайзер и RGB." },
         { id: 602, title: "HyperX Cloud II Red", category: "audio", price: 8500, status: "Хит продаж", statusClass: "info", img: "https://placehold.co/400x400/FF0000/FFF?text=Cloud+II", desc: "Самая популярная гарнитура в мире. Металлический каркас и неубиваемая конструкция." },
         { id: 603, title: "Logitech G733 Lightspeed", category: "audio", price: 12500, status: "В наличии", img: "https://placehold.co/400x400/5C2D91/FFF?text=G733", desc: "Легкие беспроводные наушники с ярким дизайном и отличной автономностью." },
@@ -107,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 613, title: "Edifier G2 II", category: "audio", price: 3500, status: "Хит продаж", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=Edifier+G2", desc: "Очень легкие бюджетные наушники со встроенной звуковой картой и хорошим позиционированием шагов." },
         { id: 614, title: "Moondrop Chu II (Внутриканальные)", category: "audio", price: 2500, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=Moondrop+Chu+II", desc: "IEM-наушники. Выбор профессиональных стримеров. Голова не потеет, звук кристально чистый." },
 
-        // --- 🕹️ КОНТРОЛЛЕРЫ (+3 товара) ---
+        // --- 🕹️ КОНТРОЛЛЕРЫ ---
         { id: 701, title: "DualShock 4 V2", category: "controllers", price: 4500, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=DualShock+4", desc: "Классический беспроводной контроллер для PS4 и отличный выбор для ПК." },
         { id: 702, title: "Xbox Wireless Controller", category: "controllers", price: 6200, status: "В наличии", img: "https://placehold.co/400x400/107C10/FFF?text=Xbox+Gamepad", desc: "Фирменный геймпад Microsoft. Полная совместимость с Windows без танцев с бубном." },
         { id: 703, title: "8BitDo Ultimate Bluetooth", category: "controllers", price: 6500, status: "Хит продаж", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=8BitDo", desc: "Стики на датчиках Холла (никогда не дрифтят!) и зарядная док-станция в комплекте." },
@@ -122,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 712, title: "DualSense Nova Pink", category: "controllers", price: 7800, status: "В наличии", img: "https://placehold.co/400x400/FF1493/FFF?text=DualSense+Pink", desc: "Яркая расцветка Nova Pink. Те же инновационные функции тактильной отдачи." },
         { id: 713, title: "Flydigi Vader 3 Pro", category: "controllers", price: 6800, status: "Хит продаж", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=Vader+3+Pro", desc: "Механические микросвитчи, курки с переключением хода (короткий для шутеров, длинный для гонок)." },
 
-        // --- 🏎️ ИГРОВЫЕ РУЛИ (+3 товара) ---
+        // --- 🏎️ ИГРОВЫЕ РУЛИ ---
         { id: 801, title: "PXN V9 (с КПП)", category: "wheels", price: 12000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=PXN+V9", desc: "Бюджетный руль с углом 900 градусов, 3 педалями и механической коробкой передач." },
         { id: 802, title: "Thrustmaster T150", category: "wheels", price: 18000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=T150", desc: "Отличный входной билет в симрейсинг с качественным ременным силовым откликом." },
         { id: 803, title: "Logitech G29", category: "wheels", price: 28000, status: "Хит продаж", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=Logitech+G29", desc: "Легендарный гоночный руль в оплетке из натуральной кожи. Бессмертная классика." },
@@ -137,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 812, title: "Thrustmaster T818", category: "wheels", price: 95000, status: "Под заказ", statusClass: "info", img: "https://placehold.co/400x400/222/FFF?text=Thrustmaster+T818", desc: "Первый Direct Drive руль от Thrustmaster. Быстрый отклик и совместимость со всеми старыми баранками." },
         { id: 813, title: "Fanatec ClubSport DD", category: "wheels", price: 88000, status: "Осталось 1 шт", statusClass: "warning", img: "https://placehold.co/400x400/222/FFF?text=ClubSport+DD", desc: "Новейшая база с технологией FullForce для передачи самых мелких вибраций дороги." },
 
-        // --- 🪑 ИГРОВЫЕ КРЕСЛА (+3 товара) ---
+        // --- 🪑 ИГРОВЫЕ КРЕСЛА ---
         { id: 901, title: "AeroCool AC120", category: "chairs", price: 15000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=AeroCool", desc: "Удобное базовое кресло для геймеров с дышащим покрытием и карбоновыми вставками." },
         { id: 902, title: "ThunderX3 TC3", category: "chairs", price: 16000, status: "В наличии", img: "https://placehold.co/400x400/222/FFF?text=ThunderX3", desc: "Технология AIR Tech предотвращает перегрев спины во время потных каток." },
         { id: 903, title: "Cougar Armor One", category: "chairs", price: 18500, status: "В наличии", img: "https://placehold.co/400x400/FF6600/FFF?text=Cougar", desc: "Стальная рама, экокожа премиум-класса и возможность откинуть спинку на 180 градусов." },
@@ -175,12 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeCategory = 'all';
 
     function renderProducts() {
-        // Очищаем контейнеры
-        const categories = ['consoles', 'pcs', 'monitors', 'keyboards', 'mice', 'audio', 'controllers', 'wheels', 'chairs'];
-        categories.forEach(cat => {
-            document.getElementById(`list-${cat}`).innerHTML = '';
-            document.getElementById(`block-${cat}`).style.display = 'none'; // Скрываем блок по умолчанию
-        });
+        const container = document.getElementById('generalProductList');
+        if (!container) return;
+        
+        container.innerHTML = ''; // Очищаем контейнер перед рендером
 
         // Получаем параметры фильтров
         const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
@@ -197,11 +194,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sortMode === 'asc') filtered.sort((a, b) => a.price - b.price);
         if (sortMode === 'desc') filtered.sort((a, b) => b.price - a.price);
 
-        // Отрисовываем товары
+        if (filtered.length === 0) {
+            container.innerHTML = '<p class="text-center text-muted py-5 w-100">Товары не найдены</p>';
+            return;
+        }
+
+        // Отрисовываем товары в общую сетку
         filtered.forEach(p => {
             const statusClass = p.statusClass || '';
             const html = `
-                <div class="col-md-6 col-xl-4 product-item">
+                <div class="col-6 col-md-4 product-item">
                     <div class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
                          data-id="${p.id}" data-title="${p.title}" data-price="${p.price}" 
                          data-status="${p.status}" data-img="${p.img}" data-desc="${p.desc}">
@@ -217,12 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
-            
-            const container = document.getElementById(`list-${p.category}`);
-            if (container) {
-                container.insertAdjacentHTML('beforeend', html);
-                document.getElementById(`block-${p.category}`).style.display = 'block'; // Показываем блок, если есть товары
-            }
+            container.insertAdjacentHTML('beforeend', html);
         });
     }
 

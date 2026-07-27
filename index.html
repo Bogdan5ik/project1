@@ -91,132 +91,48 @@
         <!-- Блок каталога с Сайдбаром слева -->
 <section id="catalog" class="py-5">
     <div class="container">
+        <!-- Заголовок каталога и поиск для мобилок -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="section-title mb-3">Каталог товаров</h2>
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control custom-input" placeholder="Поиск товара...">
+                </div>
+            </div>
+        </div>
+
         <div class="row g-4">
-            
-            <!-- ЛЕВАЯ КОЛОНКА: Сайдбар Фильтров -->
-            <aside class="col-lg-3">
-                <div class="filter-sidebar sticky-top" style="top: 100px; z-index: 10;">
-                    <h4 class="fw-bold mb-4">Фильтры</h4>
-
-                    <!-- Поиск -->
-                    <div class="mb-4">
-                        <label class="form-label text-muted small fw-bold">ПОИСК</label>
-                        <input type="text" id="searchInput" class="form-control custom-input" placeholder="Название товара...">
+            <!-- ЛЕВАЯ КОЛОНКА: Фильтры и категории -->
+            <div class="col-lg-3">
+                <div class="filter-sidebar">
+                    <h5 class="fw-bold mb-3">Категории</h5>
+                    <div class="d-flex flex-column gap-2 mb-4" id="categoryFilters">
+                        <button class="filter-btn active" data-cat="all">Все товары</button>
+                        <button class="filter-btn" data-cat="consoles">🎮 Игровые консоли</button>
+                        <button class="filter-btn" data-cat="pcs">💻 Игровые ПК</button>
+                        <button class="filter-btn" data-cat="monitors">🖥️ Мониторы</button>
+                        <button class="filter-btn" data-cat="keyboards">⌨️ Клавиатуры</button>
+                        <button class="filter-btn" data-cat="mice">🖱️ Игровые мыши</button>
+                        <button class="filter-btn" data-cat="audio">🎧 Гарнитуры и звук</button>
+                        <button class="filter-btn" data-cat="controllers">🕹️ Контроллеры</button>
+                        <button class="filter-btn" data-cat="wheels">🏎️ Рули</button>
+                        <button class="filter-btn" data-cat="chairs">🪑 Кресла</button>
                     </div>
 
-                    <!-- Категории -->
-                    <div class="mb-4">
-                        <label class="form-label text-muted small fw-bold mb-2">КАТЕГОРИИ</label>
-                        <div class="d-flex flex-column gap-2" id="categoryFilters">
-                            <button class="filter-btn active" data-cat="all">Все товары</button>
-                            <button class="filter-btn" data-cat="consoles">🎮 Игровые консоли</button>
-                            <button class="filter-btn" data-cat="pcs">💻 Игровые ПК</button>
-                            <button class="filter-btn" data-cat="monitors">🖥️ Мониторы</button>
-                            <button class="filter-btn" data-cat="keyboards">⌨️ Клавиатуры</button>
-                            <button class="filter-btn" data-cat="mice">🖱️ Игровые мыши</button>
-                            <button class="filter-btn" data-cat="audio">🎧 Гарнитуры и звук</button>
-                            <button class="filter-btn" data-cat="controllers">🕹️ Контроллеры</button>
-                            <button class="filter-btn" data-cat="wheels">🏎️ Рули</button>
-                            <button class="filter-btn" data-cat="chairs">🪑 Кресла</button>
-                        </div>
-                    </div>
-
-                    <!-- Сортировка -->
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">СОРТИРОВКА</label>
-                        <select id="sortSelect" class="form-select custom-input">
-                            <option value="default">По умолчанию</option>
-                            <option value="asc">Сначала дешевле</option>
-                            <option value="desc">Сначала дороже</option>
-                        </select>
-                    </div>
+                    <h5 class="fw-bold mb-2">Сортировка</h5>
+                    <select id="sortSelect" class="form-select custom-input">
+                        <option value="default">По умолчанию</option>
+                        <option value="asc">Сначала дешевле</option>
+                        <option value="desc">Сначала дороже</option>
+                    </select>
                 </div>
-            </aside>
+            </div>
 
-            <!-- ПРАВАЯ КОЛОНКА: Товары -->
+            <!-- ПРАВАЯ КОЛОНКА: Все товары выводятся в одну общую красивую сетку без багов -->
             <div class="col-lg-9">
-                
-                <!-- Игровые консоли -->
-                <div id="block-consoles" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Игровые консоли</h2>
-                        <p class="section-subtitle">Платформы нового поколения для лучших эксклюзивов</p>
-                    </div>
-                    <div class="row g-3" id="list-consoles"></div>
+                <div class="row g-3" id="generalProductList">
+                    <!-- Сюда JS будет рендерить товары -->
                 </div>
-
-                <!-- Игровые ПК -->
-                <div id="block-pcs" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Игровые ПК</h2>
-                        <p class="section-subtitle">Максимальная мощность без компромиссов</p>
-                    </div>
-                    <div class="row g-3" id="list-pcs"></div>
-                </div>
-
-                <!-- Мониторы -->
-                <div id="block-monitors" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Мониторы</h2>
-                        <p class="section-subtitle">Высокая частота кадров и идеальная цветопередача</p>
-                    </div>
-                    <div class="row g-3" id="list-monitors"></div>
-                </div>
-
-                <!-- Клавиатуры -->
-                <div id="block-keyboards" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Клавиатуры</h2>
-                        <p class="section-subtitle">Механическая точность каждого нажатия</p>
-                    </div>
-                    <div class="row g-3" id="list-keyboards"></div>
-                </div>
-
-                <!-- Игровые мыши -->
-                <div id="block-mice" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Игровые Мыши</h2>
-                        <p class="section-subtitle">Безупречный сенсор и молниеносный отклик</p>
-                    </div>
-                    <div class="row g-3" id="list-mice"></div>
-                </div>
-
-                <!-- Гарнитуры и звук -->
-                <div id="block-audio" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Гарнитуры и Звук</h2>
-                        <p class="section-subtitle">Услышь противника до того, как он появится</p>
-                    </div>
-                    <div class="row g-3" id="list-audio"></div>
-                </div>
-
-                <!-- Контроллеры -->
-                <div id="block-controllers" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Контроллеры</h2>
-                        <p class="section-subtitle">Погружение в игру с каждой вибрацией</p>
-                    </div>
-                    <div class="row g-3" id="list-controllers"></div>
-                </div>
-
-                <!-- Игровые рули -->
-                <div id="block-wheels" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Игровые Рули</h2>
-                        <p class="section-subtitle">Почувствуй каждый снос трассы</p>
-                    </div>
-                    <div class="row g-3" id="list-wheels"></div>
-                </div>
-
-                <!-- Игровые кресла -->
-                <div id="block-chairs" class="category-block mb-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">Игровые Кресла</h2>
-                        <p class="section-subtitle">Максимальный комфорт при долгих сессиях</p>
-                    </div>
-                    <div class="row g-3" id="list-chairs"></div>
-                </div>
-
             </div>
         </div>
     </div>

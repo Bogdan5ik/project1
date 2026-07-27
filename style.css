@@ -564,3 +564,32 @@ body {
         justify-content: space-between;
     }
 }
+/* Жесткое применение светлой темы */
+[data-bs-theme="light"] body {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+}
+
+[data-bs-theme="light"] .filter-sidebar,
+[data-bs-theme="light"] .product-card,
+[data-bs-theme="light"] .custom-modal {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Адаптив для карточек на телефоне (по 2 штуки в ряд, чтобы смотрелось как в приложении) */
+@media (max-width: 576px) {
+    .product-card {
+        padding: 12px;
+    }
+    .card-img-wrap {
+        height: 120px;
+    }
+    .product-title {
+        font-size: 0.9rem;
+    }
+    .product-price {
+        font-size: 0.95rem;
+    }
+}
